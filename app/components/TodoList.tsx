@@ -1,5 +1,10 @@
 import React from "react";
-import { toDo } from "../lib/types";
+
+type toDo = {
+  id: number;
+  task: string;
+  dueDate: string;
+};
 
 export default async function ToDoList() {
   
