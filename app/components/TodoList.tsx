@@ -1,8 +1,15 @@
 import React from "react";
 import { toDo } from "../lib/types";
+
 export default async function ToDoList() {
-  const todos = await fetch("");
-  const { data } = await todos.json();
+  
+  // Fetch To-Dos from route handler
+  const todos = await fetch("http://localhost:3000/todos", {
+    next: { tags: ["ToDo"] },
+  });
+
+  // Parse response to JSON
+  const data  = await todos.json();
 
   return (
     <div className="max-w-xl mx-auto pt-10">
