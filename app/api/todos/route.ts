@@ -1,7 +1,13 @@
 import fs from 'fs';
 import { NextRequest } from 'next/server';
 import path from 'path';
-import { toDo } from '@/app/lib/types';
+
+interface toDo {
+  id: number;
+  task: string;
+  dueDate: string;
+}
+
 export async function GET(request: Request) {
   const filePath = path.join(process.cwd(), 'public', 'data.json');
 
@@ -11,6 +17,7 @@ export async function GET(request: Request) {
 
   return Response.json({data})
 }
+
 export async function POST(request: NextRequest) {
   const filePath = path.join(process.cwd(), 'public', 'data.json');
   const fileContents = fs.readFileSync(filePath, 'utf8');

@@ -1,8 +1,20 @@
 import React from "react";
-import { toDo } from "../lib/types";
+
+type toDo = {
+  id: number;
+  task: string;
+  dueDate: string;
+};
+
 export default async function ToDoList() {
-  const todos = await fetch("");
-  const { data } = await todos.json();
+  
+  // Fetch To-Dos from route handler
+  const todos = await fetch("http://localhost:3000/todos", {
+    next: { tags: ["ToDo"] },
+  });
+
+  // Parse response to JSON
+  const data  = await todos.json();
 
   return (
     <div className="max-w-xl mx-auto pt-10">
@@ -14,7 +26,7 @@ export default async function ToDoList() {
             className="bg-gray-800 p-4 rounded-lg mb-2 flex justify-between"
           >
             <div>{todo.task}</div>
-            <div className="bg-blue-600 px-2 py-1 rounded text-sm">
+            <div className="bg-green-600 px-2 py-1 rounded text-sm">
               {todo.dueDate}
             </div>
           </li>
