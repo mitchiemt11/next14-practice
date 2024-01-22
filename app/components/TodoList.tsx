@@ -6,10 +6,13 @@ type toDo = {
   dueDate: string;
 };
 
+const apiUrl = process.env.API_URL;
+
 export default async function ToDoList() {
   
   // Fetch To-Dos from route handler
-  const todos = await fetch("http://localhost:3000/todos", {
+  const todos = await  fetch(`${apiUrl}/todos`, {
+    cache: "no-store",
     next: { tags: ["ToDo"] },
   });
 
