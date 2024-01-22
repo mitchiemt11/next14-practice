@@ -9,9 +9,9 @@ type toDo = {
 export default async function ToDoList() {
   
   // Fetch To-Dos from route handler
-  const todos = await fetch("http://localhost:3000/todos", {
+  const todos = await fetch(process.env.URL + 'todos', {
     next: { tags: ["ToDo"] },
-  });
+  } );
 
   // Parse response to JSON
   const data  = await todos.json();
