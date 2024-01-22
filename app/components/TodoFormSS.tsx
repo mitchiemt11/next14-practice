@@ -15,7 +15,7 @@ export default function TodoFormSS() {
       dueDate: dueDate,
     };
     // Post new Todo to our mock database
-    await axios.post("http://localhost:3000/api/todos/", newTodoBody);
+    await axios.post("http://localhost:3000/todos/", newTodoBody);
     // Refetch Todo's
     revalidateTag("ToDo");
     // Redirect them back to the Homepage
@@ -27,7 +27,7 @@ export default function TodoFormSS() {
       <div className="max-w-xl mx-auto px-4 w-full">
         <h1 className="text-4xl font-bold mb-5">Add A New To-Do</h1>
         {/* Invoke the action using the "action" attribute */}
-        <form className="space-y-4">
+        <form action={addTodo} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">Task:</label>
             <input
