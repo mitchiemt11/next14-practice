@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nextjs To-Do Tracker",
+  title: "To-Do Tracker",
   description: "A practicle To-Do application built using Nextjs",
 };
 
