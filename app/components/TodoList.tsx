@@ -9,7 +9,7 @@ type toDo = {
 export default async function ToDoList() {
   
   // Fetch To-Dos from route handler
-  const todos = await fetch( 'http://localhost:3004/todos', {
+  const todos = await fetch( `${process.env.API_URL}/todos`, {
     next: { tags: ["ToDo"] },
     // cache: 'no-store'
   } );

@@ -12,7 +12,7 @@ export const addTodo = async (data: FormData) => {
     dueDate: dueDate,
   };
   // Post new Todo to our mock database
-  await axios.post("http://localhost:3000/api/todos", newTodoBody);
+  await axios.post(`${process.env.API_URL}/todos`, newTodoBody);
   // Refetch Todo's
   revalidateTag("ToDo");
   // Redirect them back to the Homepage
